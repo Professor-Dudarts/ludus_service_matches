@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work-bkps\\PartidasApi\\PartidasApi.csproj": {}
+    "C:\\Projects\\ludus_service_matches\\PartidasApi\\PartidasApi.csproj": {}
   },
   "projects": {
-    "C:\\Work-bkps\\PartidasApi\\PartidasApi.csproj": {
+    "C:\\Projects\\ludus_service_matches\\PartidasApi\\PartidasApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work-bkps\\PartidasApi\\PartidasApi.csproj",
+        "projectUniqueName": "C:\\Projects\\ludus_service_matches\\PartidasApi\\PartidasApi.csproj",
         "projectName": "PartidasApi",
-        "projectPath": "C:\\Work-bkps\\PartidasApi\\PartidasApi.csproj",
+        "projectPath": "C:\\Projects\\ludus_service_matches\\PartidasApi\\PartidasApi.csproj",
         "packagesPath": "C:\\Users\\Leonardo Melo\\.nuget\\packages\\",
-        "outputPath": "C:\\Work-bkps\\PartidasApi\\obj\\",
+        "outputPath": "C:\\Projects\\ludus_service_matches\\PartidasApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -71,9 +71,17 @@
               "target": "Package",
               "version": "[1.6.4, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [

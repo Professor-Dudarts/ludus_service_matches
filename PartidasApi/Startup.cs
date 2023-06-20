@@ -13,7 +13,6 @@ using Microsoft.OpenApi.Models;
 using PartidasApi.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace PartidasApi
 {
@@ -37,7 +36,7 @@ namespace PartidasApi
 
             /*services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "API Partidas", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Nome do Projeto", Version = "v1" });
             });*/
 
             services.AddControllersWithViews();
@@ -66,7 +65,7 @@ namespace PartidasApi
             /*app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Partidas");
+                c.SwaggerEndpoint("https://localhost:51256//swagger/v1/swagger.json", "Api Partidas v1");
             });*/
 
             app.UseEndpoints(endpoints =>

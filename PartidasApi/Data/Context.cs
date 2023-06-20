@@ -11,6 +11,9 @@ namespace PartidasApi.Data
 
         public DbSet<Match> Match { get; set; }
         public DbSet<LogMatch> LogMatch { get; set; }
+        public DbSet<YellowCards> YellowCards { get; set; }
+        public DbSet<RedCards> RedCards { get; set; }
+        public DbSet<Goals> Goals { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +44,11 @@ namespace PartidasApi.Data
                 .HasOne(m => m.LogMatch)
                 .WithMany()
                 .HasForeignKey(m => m.LogMatchId);
+
+            modelBuilder.Entity<LogMatch>().ToTable("LogMatch").HasKey("LogMatchId");
+            modelBuilder.Entity<YellowCards>().ToTable("YellowCards").HasKey("YellowCardsId");
+            modelBuilder.Entity<RedCards>().ToTable("RedCards").HasKey("RedCardsId");
+            modelBuilder.Entity<Goals>().ToTable("Goals").HasKey("GoalsId");
 
             base.OnModelCreating(modelBuilder);
         }

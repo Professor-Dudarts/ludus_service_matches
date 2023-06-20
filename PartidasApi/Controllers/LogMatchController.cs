@@ -88,51 +88,42 @@ namespace PartidasApi.Controllers
 
         }
 
-        [HttpPut("Update")]
-        public IActionResult Update(LogMatch logMatch)
-        {
-            try
-            {
-                var update = _context.LogMatch.SingleOrDefault(s => s.LogMatchId == logMatch.LogMatchId);
+         [HttpPut("Update")]
+         public IActionResult Update(LogMatch logMatch)
+         {
+             try
+             {
+                 var update = _context.LogMatch.SingleOrDefault(s => s.LogMatchId == logMatch.LogMatchId);
 
-                if (RequiredItensIsOk(logMatch))
-                {
-                    update.MatchId = logMatch.MatchId;
-                    update.WinnerTeam = logMatch.WinnerTeam;
-                    update.MasterTeamGoals = logMatch.MasterTeamGoals;
-                    update.MasterTeamYellowCards = logMatch.MasterTeamYellowCards;
-                    update.MasterTeamRedCards = logMatch.MasterTeamRedCards;
-                    update.AwayTeamGoals = logMatch.AwayTeamGoals;
-                    update.AwayTeamYellowCards = logMatch.AwayTeamYellowCards;
-                    update.AwayTeamRedCards = logMatch.AwayTeamRedCards;
+                 if (RequiredItensIsOk(logMatch))
+                 {
+                     update.MatchId = logMatch.MatchId;
+                     update.WinnerTeamId = logMatch.WinnerTeamId;
+                     update.MatchDescription = logMatch.MatchDescription;
 
-                    _context.Entry(update).CurrentValues.SetValues(update);
-                    _context.SaveChanges();
+                     _context.Entry(update).CurrentValues.SetValues(update);
+                     _context.SaveChanges();
 
-                    return Ok(new { message = "Registro atualizado com sucesso!", status = "success" });
+                     return Ok(new { message = "Registro atualizado com sucesso!", status = "success" });
 
-                }
-                else
-                {
-                    return BadRequest(new { message = "Preencha os campos obrigatorios", status = "danger" });
-                }
-            }
-            catch (Exception)
-            {
-                return BadRequest(new { message = "Ouve um erro ao editar o registro", status = "danger" });
-            }
-        }
+                 }
+                 else
+                 {
+                     return BadRequest(new { message = "Preencha os campos obrigatorios", status = "danger" });
+                 }
+             }
+             catch (Exception)
+             {
+                 return BadRequest(new { message = "Ouve um erro ao editar o registro", status = "danger" });
+             }
+         }
 
-        private bool RequiredItensIsOk(LogMatch logMatch)
-        {
-            return !String.IsNullOrEmpty(logMatch.WinnerTeam) 
-                || !String.IsNullOrEmpty(logMatch.MasterTeamGoals.ToString())
-                || !String.IsNullOrEmpty(logMatch.MasterTeamYellowCards.ToString())
-                || !String.IsNullOrEmpty(logMatch.MasterTeamRedCards.ToString())
-                || !String.IsNullOrEmpty(logMatch.AwayTeamGoals.ToString())
-                || !String.IsNullOrEmpty(logMatch.AwayTeamYellowCards.ToString())
-                || !String.IsNullOrEmpty(logMatch.AwayTeamRedCards.ToString());
-        }
+         private bool RequiredItensIsOk(LogMatch logMatch)
+         {
+            return logMatch.MatchId != 0
+                || logMatch.WinnerTeamId != 0
+                || !String.IsNullOrEmpty(logMatch.MatchDescription);
+         }
 
         [HttpDelete("Delete/{id}")]
         public void Delete(int id)
